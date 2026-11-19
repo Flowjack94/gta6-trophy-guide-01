@@ -3,23 +3,134 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>Leonida Platinum — GTA VI Trophy Guide &amp; Tracker</title>
+<meta name="description" content="Offline guide and tracker for all 55 PS5 trophies in Grand Theft Auto VI: checklists, filters, spoiler mode, roadmap to the platinum.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<div class="sun" aria-hidden="true"></div>
+<header class="hero">
+  <p class="eyebrow">Grand Theft Auto VI &middot; PS5 &middot; 55 trophies</p>
+  <h1>Leonida <span>Platinum</span></h1>
+  <p class="tagline">The complete offline trophy guide &amp; tracker for GTA VI — every trophy, every guide, zero network needed.</p>
+  <div class="progress-wrap">
+    <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
+    <p id="progressText" class="progress-text">0 of 55 earned — 0%</p>
+    <p id="gradeCounts" class="grade-counts"></p>
+  </div>
+  <p class="warning"><strong>Read first:</strong> Rockstar has NOT published an official trophy list. This guide uses the list as reported from PlayStation Network on 18 Nov 2026 — names, descriptions and grades as reported, guides written in our own words. Anything not yet confirmed is labelled as such. <strong>Cheats disable trophies.</strong> Only one trophy is reported as possibly missable: <a href="#trophy-28">Positive Mental Attitude</a>.</p>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
-</div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
+
+<nav class="tabs" aria-label="Sections">
+  <button type="button" class="tab active" data-view="guide">Trophy Guide</button>
+  <button type="button" class="tab" data-view="roadmap">Roadmap to Platinum</button>
+  <button type="button" class="tab" data-view="sources">Sources &amp; Notes</button>
+</nav>
+
+<main>
+  <section id="view-guide" class="view">
+    <div class="controls">
+      <label class="search-label">Search <input id="search" type="search" placeholder="Trophy name or keyword…" autocomplete="off"></label>
+      <label>Grade
+        <select id="gradeFilter">
+          <option value="all">All grades</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </label>
+      <label>Kind
+        <select id="kindFilter">
+          <option value="all">All kinds</option>
+          <option value="story">Story</option>
+          <option value="collectible">Collectible</option>
+          <option value="activity">Activity</option>
+          <option value="robbery">Robbery</option>
+          <option value="money">Money</option>
+          <option value="exploration">Exploration</option>
+          <option value="combat">Combat</option>
+        </select>
+      </label>
+      <label>Status
+        <select id="statusFilter">
+          <option value="all">Earned + unearned</option>
+          <option value="earned">Earned only</option>
+          <option value="unearned">Unearned only</option>
+        </select>
+      </label>
+      <label class="check"><input id="missableOnly" type="checkbox"> Missable only</label>
+      <label class="check"><input id="spoilerToggle" type="checkbox" checked> Hide spoilers (28 hidden trophies)</label>
+    </div>
+    <div class="actions">
+      <button id="exportBtn" type="button">Export progress (.json)</button>
+      <label class="import-btn">Import progress <input id="importFile" type="file" accept="application/json,.json"></label>
+      <button id="resetBtn" type="button" class="danger">Reset progress</button>
+      <span id="saveNote" class="save-note" aria-live="polite"></span>
+    </div>
+    <p id="resultCount" class="result-count" aria-live="polite"></p>
+    <div id="trophyList" class="trophy-list"></div>
+    <p id="emptyState" class="empty" hidden>No trophies match these filters. Try clearing the search or a filter.</p>
+  </section>
+
+  <section id="view-roadmap" class="view" hidden>
+    <h2>Roadmap to the Platinum</h2>
+    <p class="lede">Four stages, in order. The story first, then the world, then clean-up, then 100%. The platinum pops when the other 54 are done.</p>
+    <ol class="roadmap">
+      <li>
+        <h3>Stage 1 — Story first <span class="stage-count">28 trophies</span></h3>
+        <p>Play the campaign from Chapter 1 to the final mission. Every story trophy — the four chapter completions, the named missions, the character strands for Andy, Kenton, Billy, Randy and Tyrone — pops as you go. Two habits matter here:</p>
+        <ul>
+          <li><strong>Do the missable first:</strong> meditate at Lucia's balcony spot in Chapter 1 for <em>Positive Mental Attitude</em>. It is the only trophy reported as possibly missable, and it disappears after Chapter 1.</li>
+          <li><strong>Keep manual saves:</strong> one at the start of every chapter and one before the final mission. GTA VI has no mission replay, so these saves are your safety net.</li>
+          <li>Try every activity type once as you meet it — that is <em>Master of None</em> — and grab vehicles and WAiNK spots as you travel.</li>
+        </ul>
+      </li>
+      <li>
+        <h3>Stage 2 — The open world <span class="stage-count">exploration &amp; strangers</span></h3>
+        <p>After the story, explore all of Leonida (<em>The Goodtime State</em>), finish the 8 stranger mission strands (<em>Strangers &amp; Freaks</em>), hunt the unique animal for Bret (<em>Fair Game</em>), and work the long grinds while you travel: 100 vehicles discovered, 100 WAiNK locations, meditation spots, and collectible card sets.</p>
+      </li>
+      <li>
+        <h3>Stage 3 — Clean-up <span class="stage-count">activities, robberies &amp; money</span></h3>
+        <p>Now the dedicated grinds: 250 stunts, 20 different race wins, gold at every Shooting Range challenge, drone races at every location, 50 challenges, the robbery set (shops, jewelry store, armored truck, bank vaults, gang operations), and the money set — $250,000 laundered, $100,000 spent, all garages bought, 10 vehicles registered.</p>
+      </li>
+      <li>
+        <h3>Stage 4 — 100% completion <span class="stage-count">the gold</span></h3>
+        <p>Finish <em>A Long Road</em> — 100% completion. The in-game stats screen shows your percentage and what is still missing. Check it regularly in this stage so nothing is left at 99%. When it pops, the platinum <em>Vice Got a Price!</em> pops with it.</p>
+      </li>
+    </ol>
+    <div class="tip-box">
+      <h3>Golden rules</h3>
+      <ul>
+        <li>Cheats disable trophies — don't use them on a platinum run.</li>
+        <li>Manual save at the start of every chapter + one before the final mission.</li>
+        <li>Do Lucia's balcony meditation in Chapter 1 — the one reported missable.</li>
+        <li>Grinds (stunts, WAiNK, vehicles) are best done passively while travelling, not in one sitting.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="view-sources" class="view" hidden>
+    <h2>Sources &amp; Notes</h2>
+    <ul class="sources">
+      <li><strong>Exophase trophy list as reported 18 Nov 2026</strong> (via PlanetGTA6), cross-checked with PSNProfiles and TrueAchievements — the source of the 55 trophy names, official descriptions and grades used here.</li>
+      <li><strong>PowerPyx</strong> — cheats disable trophies; the missable report for <em>Positive Mental Attitude</em> (Lucia's balcony meditation in Chapter 1).</li>
+      <li><strong>GTABase</strong> — corroborates the Chapter 1 balcony meditation report.</li>
+    </ul>
+    <h3>Honesty notes</h3>
+    <ul>
+      <li>Rockstar has NOT published an official trophy list. This guide presents the list as reported from PlayStation Network on 18 Nov 2026, not as confirmed fact.</li>
+      <li>Only <em>Positive Mental Attitude</em> is reported as possibly missable. Every other trophy is marked "No missable report confirmed yet" — we do not invent other missables.</li>
+      <li>Guide text is written in our own words from the official descriptions. Where a trophy's description is vague, the guide says so plainly instead of guessing details.</li>
+      <li>This guide is an unofficial fan guide. It is not affiliated with Rockstar Games, and it uses no Rockstar logo or official artwork.</li>
+      <li>Your checklist is saved only in this browser (localStorage). Export it to a file to back it up or move it to another device.</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p>Leonida Platinum — an offline GTA VI trophy guide &amp; tracker. Unofficial fan project, built for the make.fun bounty gta6-trophy-guide-01. Works fully offline: no network requests, no tracking.</p>
+</footer>
 <script type="module" src="app.js"></script>
 </body>
 </html>
